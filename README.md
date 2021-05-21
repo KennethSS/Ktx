@@ -1,7 +1,7 @@
 <h1 align="center">Ktx</h1></br>
 
 <p align="center">
-A Ktx is simply support ktx for android component
+A KTX is ~~Korea Train eXpress~~ simply support ktx for android component
 
 </p>
 
