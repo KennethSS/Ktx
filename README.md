@@ -1,7 +1,7 @@
 <h1 align="center">Ktx</h1></br>
 
 <p align="center">
-  A KTX is <del><b>K</b>orea <b>T</b>rain e<b>X</b>press</del> Train eXpress simply support ktx for android component
+  A KTX is <del><b>K</b>orea <b>T</b>rain e<b>X</b>press</del> simply support ktx for android component
 </p>
 
 
