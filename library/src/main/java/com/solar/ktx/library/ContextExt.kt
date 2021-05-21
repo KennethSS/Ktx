@@ -6,6 +6,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.location.LocationManager
 import android.net.ConnectivityManager
@@ -20,12 +21,15 @@ import android.text.Spanned
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.Toast
+import androidx.annotation.ColorRes
+import androidx.annotation.FontRes
 import androidx.annotation.RequiresPermission
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.view.ContextThemeWrapper
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
+import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.snackbar.Snackbar
 
 /** Widget **/
@@ -47,6 +51,7 @@ fun Context.toast(msg: String, length: Int = Toast.LENGTH_SHORT) {
 
     }
 }
+
 
 fun Snackbar.action(action: String, color: Int? = null, listener: (View) -> Unit) {
     setAction(action, listener)
@@ -147,6 +152,16 @@ fun Context.isNetworkAvailable(): Boolean {
 }
 
 @RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
+fun Context?.isOnline(): Boolean {
+    this?.apply {
+        val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnected
+    }
+    return false
+}
+
+@RequiresPermission(Manifest.permission.ACCESS_NETWORK_STATE)
 fun Context.isWiFiConnected(): Boolean {
     val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
@@ -158,6 +173,8 @@ fun Context.isWiFiConnected(): Boolean {
     }
 }
 
+fun Context.getFontCompat(@FontRes fontId: Int): Typeface? =
+    runCatching { ResourcesCompat.getFont(this, fontId) }.getOrNull()
 
 /** Permmission **/
 fun Context.hasLocationPermission(): Boolean =
