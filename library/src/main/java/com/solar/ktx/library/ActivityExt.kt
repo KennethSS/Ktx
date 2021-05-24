@@ -8,6 +8,9 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 
+const val REQUEST_CODE_PERMISSION: Int = 0x0001
+
+//region Permission
 fun Activity.requestLocationPermission(requestCode: Int) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         requestPermissions(
@@ -17,6 +20,9 @@ fun Activity.requestLocationPermission(requestCode: Int) {
     }
 }
 
+fun Activity.requestPermission(permissions: Array<String>) = requestPermissions(permissions, REQUEST_CODE_PERMISSION)
+
+//endregion
 
 fun Activity.intentToCall(telNum: String) {
     startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$telNum")))
