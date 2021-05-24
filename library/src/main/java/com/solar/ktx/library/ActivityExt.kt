@@ -8,7 +8,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 
-const val REQUEST_CODE_PERMISSION: Int = 0x0001
+
 
 //region Permission
 fun Activity.requestLocationPermission(requestCode: Int) {
