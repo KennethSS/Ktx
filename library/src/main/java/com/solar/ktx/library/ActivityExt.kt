@@ -1,6 +1,7 @@
 package com.solar.ktx.library
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -33,8 +34,8 @@ fun <T> Activity.observe(liveData: LiveData<out T>, onChanged: (v: T) -> Unit) {
 }
 
 
-inline fun <reified T> View.startActivity(vararg pairs: Pair<String, Any>) {
-    context.startActivity(Intent(context, T::class.java).apply {
+inline fun <reified T> Context.start(vararg pairs: Pair<String, Any>) {
+    startActivity(Intent(this, T::class.java).apply {
         for ((key, value) in pairs) {
             when(value) {
                 is Boolean -> putExtra(key, value)
