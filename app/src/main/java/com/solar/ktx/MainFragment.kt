@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.solar.ktx.library.getValue
+import com.solar.ktx.library.component.getValue
 
 class MainFragment : Fragment() {
     val firstName by getValue<String>("firstName") // String?

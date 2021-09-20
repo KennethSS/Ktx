@@ -2,7 +2,10 @@ package com.solar.ktx
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.solar.ktx.library.*
+import com.solar.ktx.library.component.getValue
+import com.solar.ktx.library.component.intentToCall
+import com.solar.ktx.library.component.requestLocationPermission
+import com.solar.ktx.library.component.start
 
 class MainActivity : AppCompatActivity() {
     val firstName by getValue<String>("firstName") // String?
@@ -19,5 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         intentToCall("010-1234-5678")
         start<MainActivity>("t" to 2)
+        
+        start<MainActivity>()
     }
 }

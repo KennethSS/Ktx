@@ -1,13 +1,12 @@
-package com.solar.ktx.library
+package com.solar.ktx.library.component
 
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
+import com.solar.ktx.library.REQUEST_CODE_PERMISSION
 
 
 
