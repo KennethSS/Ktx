@@ -20,7 +20,13 @@ fun Activity.requestLocationPermission(requestCode: Int) {
     }
 }
 
-fun Activity.requestPermission(permissions: Array<String>) = requestPermissions(permissions, REQUEST_CODE_PERMISSION)
+fun Activity.requestPermission(permissions: Array<String>, onIsNotDangerPermission: () -> Unit = { }) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        requestPermissions(permissions, REQUEST_CODE_PERMISSION)
+    } else {
+        onIsNotDangerPermission()
+    }
+}
 
 //endregion
 
